@@ -1,3 +1,7 @@
+## 1.2.19
+
+- Fix the "Mute" state always showing as unmuted (`mdi:volume-high`), which made the media player's mute button only ever mute (never unmute), since the toggle always assumed the current state was unmuted. The UPnP `Mute` value is reported as the string `"0"`/`"1"`, not a number, so `state.Mute === 1` was always `false`.
+
 ## 1.2.18
 
 - Update all `logo.png`/`dark_logo.png` files (add-on and `brand/` directories) with the new "Teufel | Raumfeld" logo versions, in both light and dark variants.

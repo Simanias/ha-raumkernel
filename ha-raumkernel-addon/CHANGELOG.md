@@ -1,3 +1,7 @@
+## 1.2.21
+
+- Add a dynamic icon to the "Input" sensor matching the current source: `mdi:cast-audio` for Streaming, `mdi:audio-input-rca` for Line-in, `mdi:toslink` for Optical, `mdi:hdmi-port` for TV, `mdi:spotify` for Spotify, `mdi:radio` for Radio.
+
 ## 1.2.20
 
 - Show an icon and the source name in the media player when there's no album art (e.g. Line-in, Optical, TV): `mdi:audio-input-rca` for Line-in, `mdi:toslink` for Optical, `mdi:hdmi-port` for TV.

@@ -1,3 +1,7 @@
+## 1.2.20
+
+- Show an icon and the source name in the media player when there's no album art (e.g. Line-in, Optical, TV): `mdi:audio-input-rca` for Line-in, `mdi:toslink` for Optical, `mdi:hdmi-port` for TV.
+
 ## 1.2.19
 
 - Fix the "Mute" state always showing as unmuted (`mdi:volume-high`), which made the media player's mute button only ever mute (never unmute), since the toggle always assumed the current state was unmuted. The UPnP `Mute` value is reported as the string `"0"`/`"1"`, not a number, so `state.Mute === 1` was always `false`.

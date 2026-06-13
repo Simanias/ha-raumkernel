@@ -1,3 +1,7 @@
+## 1.2.16
+
+- Update all `icon.png`/`dark_icon.png` files (add-on and `brand/` directories) with the official Raumfeld logo icon, in both light and dark variants.
+
 ## 1.2.15
 
 - Replace `brand/` icon and logo with the official Raumfeld-branded images (256x256 icon, 600x200 logo), and add `dark_icon.png`/`dark_logo.png` light/dark variants per the HA Brands Proxy API.

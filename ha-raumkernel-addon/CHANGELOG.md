@@ -1,3 +1,7 @@
+## 1.2.29
+
+- Bump version past the previously installed experimental build (1.2.28) so the integration auto-update is actually applied (auto-install only updates when the bundled version is newer than the installed one). No functional change beyond what was already in 1.2.21.
+
 ## 1.2.21
 
 - Add a dynamic icon to the "Input" sensor matching the current source: `mdi:cast-audio` for Streaming, `mdi:audio-input-rca` for Line-in, `mdi:toslink` for Optical, `mdi:hdmi-port` for TV, `mdi:spotify` for Spotify, `mdi:radio` for Radio.

@@ -1,3 +1,7 @@
+## 1.2.15
+
+- Replace `brand/` icon and logo with the official Raumfeld-branded images (256x256 icon, 600x200 logo), and add `dark_icon.png`/`dark_logo.png` light/dark variants per the HA Brands Proxy API.
+
 ## 1.2.14
 
 - Add `selectSource` support for Soundbars and Sounddecks (TV_ARC, OpticalIn).

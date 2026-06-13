@@ -1,3 +1,7 @@
+## 1.2.17
+
+- Update all `logo.png`/`dark_logo.png` files (add-on and `brand/` directories) with the official "Teufel | Raumfeld" logo, in both light and dark variants.
+
 ## 1.2.16
 
 - Update all `icon.png`/`dark_icon.png` files (add-on and `brand/` directories) with the official Raumfeld logo icon, in both light and dark variants.

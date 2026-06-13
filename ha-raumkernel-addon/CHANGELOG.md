@@ -1,3 +1,7 @@
+## 1.2.30
+
+- Fix "Input" sensor for Soundbars/Sounddecks (devices with "Source Select"): now detects "Spotify"/"Radio" while streaming, instead of always showing "Streaming". "Source Select" only distinguishes physical inputs (Line-in, Optical, TV) from "Raumfeld" (streaming); when streaming, the playback URI is now inspected to tell Spotify Connect/Radio apart from regular Raumfeld zone playback.
+
 ## 1.2.29
 
 - Bump version past the previously installed experimental build (1.2.28) so the integration auto-update is actually applied (auto-install only updates when the bundled version is newer than the installed one). No functional change beyond what was already in 1.2.21.

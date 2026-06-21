@@ -1,3 +1,7 @@
+## 1.2.31
+
+- Merge upstream changes: fix track position/seek behavior, and changing the volume of a Raumfeld device in a group now affects only the selected device, not the whole group.
+
 ## 1.2.30
 
 - Fix "Input" sensor for Soundbars/Sounddecks (devices with "Source Select"): now detects "Spotify"/"Radio" while streaming, instead of always showing "Streaming". "Source Select" only distinguishes physical inputs (Line-in, Optical, TV) from "Raumfeld" (streaming); when streaming, the playback URI is now inspected to tell Spotify Connect/Radio apart from regular Raumfeld zone playback.

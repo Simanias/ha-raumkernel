@@ -1,3 +1,7 @@
+## 1.2.33
+
+- Publish pre-built multi-arch add-on images to `ghcr.io` via a new build workflow, and point the add-on at them with the `image:` option. Home Assistant now downloads a ready-made image instead of building it locally on the device, so updating shows a real download progress bar and installs much faster.
+
 ## 1.2.32
 
 - Merge upstream maintenance release: upgrade dependencies (latest `node-raumkernel` fixes), and fix an add-on crash when sleep time is active.

@@ -1,3 +1,7 @@
+## 1.2.32
+
+- Merge upstream maintenance release: upgrade dependencies (latest `node-raumkernel` fixes), and fix an add-on crash when sleep time is active.
+
 ## 1.2.31
 
 - Merge upstream changes: fix track position/seek behavior, and changing the volume of a Raumfeld device in a group now affects only the selected device, not the whole group.

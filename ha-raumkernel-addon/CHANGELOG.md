@@ -1,3 +1,7 @@
+## 1.2.34
+
+- Prevent the integration from being configured twice for the same add-on instance (host:port). A duplicate config entry caused every room's entities to be registered twice, producing "does not generate unique IDs ... already exists - ignoring" errors in the log. Existing duplicate entries still need to be removed manually in Settings → Devices & Services.
+
 ## 1.2.33
 
 - Publish pre-built multi-arch add-on images to `ghcr.io` via a new build workflow, and point the add-on at them with the `image:` option. Home Assistant now downloads a ready-made image instead of building it locally on the device, so updating shows a real download progress bar and installs much faster.

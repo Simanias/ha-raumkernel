@@ -38,14 +38,14 @@ class RaumfeldConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         """Handle the initial step."""
         errors: dict[str, str] = {}
 
-        if user_input is not None:
-            # Prevent configuring the same add-on instance (host:port) twice,
-            # which would create duplicate entities with colliding unique IDs.
-            await self.async_set_unique_id(
-                f"{user_input[CONF_HOST]}:{user_input[CONF_PORT]}"
-            )
-            self._abort_if_unique_id_configured()
+        # This add-on bridges a single Raumfeld system, so only one config entry
+        # is supported. A second entry would re-register every room's entities,
+        # producing colliding unique IDs. Regardless of the host/port entered,
+        # abort if an entry already exists.
+        if self._async_current_entries():
+            return self.async_abort(reason="single_instance_allowed")
 
+        if user_input is not None:
             # validate connection here if needed
             return self.async_create_entry(
                 title="Teufel Raumfeld (Raumkernel Addon)", data=user_input

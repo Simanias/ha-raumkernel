@@ -1,3 +1,7 @@
+## 1.2.36
+
+- Merge upstream v1.2.18 fixes: Raumfeld devices sometimes failed to switch source when previously in Spotify Connect mode (#68); prevent add-on crashes in some situations, including when logging non-string error payloads (#69); add type and power-state guards for devices in standby/power-save mode; and faster virtual-zone creation when coming out of standby.
+
 ## 1.2.35
 
 - Make the integration single-instance: adding it a second time is now rejected with "Already configured", regardless of the host/port entered. The previous 1.2.34 guard only blocked an identical host:port, so a second entry pointing at the same Raumfeld system via a different host string still slipped through and caused colliding unique IDs. Any existing duplicate entry must still be removed manually in Settings → Devices & Services.

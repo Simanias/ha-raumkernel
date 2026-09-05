@@ -1,3 +1,7 @@
+## 1.2.38
+
+- Downgrade the noisy `[MediaDataConverter] Error converting media item` error (with its `null.toLowerCase` stack) to a debug log. It comes from `node-raumkernel` when a browsed media item has no `upnp:class` field; the library already catches it per-item and skips just that entry, so browsing is unaffected — it was only log noise.
+
 ## 1.2.37
 
 - Fix uncaught UPnP 701 error when pausing a device that can't be paused (e.g. turning off/standby while on a TV/Line-in source or already stopped). `pause()` now swallows the expected 701 like `stop()` already did, so it no longer surfaces as an "Error processing message" stack trace. The related `Pause on ... failed` library log is also downgraded to debug.

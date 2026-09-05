@@ -181,6 +181,14 @@ class RaumkernelHelper extends EventEmitter {
                     console.log(`[RK] [DEBUG] ${logStr}`);
                     return;
                 }
+                if (logStr.includes('Error converting media item')) {
+                    // node-raumkernel throws on media items that lack a upnp:class field.
+                    // The library catches this per-item and substitutes a placeholder, so
+                    // browsing still works; the malformed item is simply skipped.
+                    // Downgrade to DEBUG to avoid alarming error stacks in the log.
+                    console.log(`[RK] [DEBUG] ${logStr}`);
+                    return;
+                }
             }
 
             let fullMsg = logStr;

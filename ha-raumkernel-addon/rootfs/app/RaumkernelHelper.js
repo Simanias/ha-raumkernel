@@ -174,8 +174,9 @@ class RaumkernelHelper extends EventEmitter {
                 if (logStr.includes('Source Select') && logStr.includes('GetDeviceSetting')) {
                     return;
                 }
-                if (logStr.includes('Stop on') && logStr.includes('failed')) {
-                    // Raumfeld renderers return UPnP error 701 when Stop is called in Spotify mode.
+                if ((logStr.includes('Stop on') || logStr.includes('Pause on')) && logStr.includes('failed')) {
+                    // Raumfeld renderers return UPnP error 701 when Stop/Pause is not allowed
+                    // in the current state (e.g. Spotify mode, Line-in/TV source, entering standby).
                     // Downgrade to DEBUG log as this error is expected and handled gracefully.
                     console.log(`[RK] [DEBUG] ${logStr}`);
                     return;
@@ -1082,7 +1083,19 @@ class RaumkernelHelper extends EventEmitter {
     async pause(roomIdentifier) {
         const room = this.findRoom(roomIdentifier);
         const renderer = this._getRendererForRoom(room);
-        if (renderer) return renderer.pause();
+        if (!renderer) return;
+
+        try {
+            return await renderer.pause();
+        } catch (err) {
+            // 701 = Action not allowed in current state (e.g. Line-in/TV/ARC
+            // source, already stopped, or entering standby). Expected and benign.
+            if (err?.errorCode === '701' || err?.message?.includes('701')) {
+                console.warn(`${LOG_PREFIX.COMMAND} Pause (701) ignored for ${room?.name}`);
+                return;
+            }
+            throw err;
+        }
     }
 
     async stop(roomIdentifier) {

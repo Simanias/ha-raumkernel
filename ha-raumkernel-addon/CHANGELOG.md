@@ -1,3 +1,7 @@
+## 1.2.37
+
+- Fix uncaught UPnP 701 error when pausing a device that can't be paused (e.g. turning off/standby while on a TV/Line-in source or already stopped). `pause()` now swallows the expected 701 like `stop()` already did, so it no longer surfaces as an "Error processing message" stack trace. The related `Pause on ... failed` library log is also downgraded to debug.
+
 ## 1.2.36
 
 - Merge upstream v1.2.18 fixes: Raumfeld devices sometimes failed to switch source when previously in Spotify Connect mode (#68); prevent add-on crashes in some situations, including when logging non-string error payloads (#69); add type and power-state guards for devices in standby/power-save mode; and faster virtual-zone creation when coming out of standby.

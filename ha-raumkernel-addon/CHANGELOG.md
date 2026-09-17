@@ -1,3 +1,7 @@
+## 1.2.39
+
+- Fix media info (title, artist, album, cover art) not updating when the track changes during playback, while the progress bar did. The position poll now also applies the track metadata returned by the same `GetPositionInfo` call, so the now-playing details stay in sync with the progress.
+
 ## 1.2.38
 
 - Downgrade the noisy `[MediaDataConverter] Error converting media item` error (with its `null.toLowerCase` stack) to a debug log. It comes from `node-raumkernel` when a browsed media item has no `upnp:class` field; the library already catches it per-item and skips just that entry, so browsing is unaffected — it was only log noise.

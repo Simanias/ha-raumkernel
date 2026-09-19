@@ -1,3 +1,7 @@
+## 1.2.40
+
+- Merge upstream v1.2.19: add Spotify multiroom support — a "Spotify multiroom" switch to toggle between multi-room and single-room mode, and a "Spotify primary room" select entity to choose the active Spotify Connect speaker in multiroom mode (#73).
+
 ## 1.2.39
 
 - Fix media info (title, artist, album, cover art) not updating when the track changes during playback, while the progress bar did. The position poll now also applies the track metadata returned by the same `GetPositionInfo` call, so the now-playing details stay in sync with the progress.

@@ -3,7 +3,7 @@
 import asyncio
 import json
 import logging
-from collections.abc import Callable
+from collections.abc import Awaitable, Callable
 from typing import Any
 
 import aiohttp
@@ -26,6 +26,7 @@ class RaumfeldApiClient:
         self._session = session
         self._ws: aiohttp.ClientWebSocketResponse | None = None
         self._listeners: list[Callable[[dict[str, Any]], None]] = []
+        self._connect_callbacks: list[Callable[[], Awaitable[None]]] = []
         self._loop = asyncio.get_running_loop()
 
     @property
@@ -47,6 +48,12 @@ class RaumfeldApiClient:
                 _LOGGER.info(
                     "Connected to Teufel Raumfeld (Raumkernel Addon) at %s", url
                 )
+
+                for callback in self._connect_callbacks:
+                    try:
+                        await callback()
+                    except Exception as err:  # pylint: disable=broad-except
+                        _LOGGER.error("Error in connect callback: %s", err)
 
                 # Fetch initial state
                 await self.get_zones()
@@ -123,6 +130,10 @@ class RaumfeldApiClient:
         """Unregister a message listener."""
         if listener in self._listeners:
             self._listeners.remove(listener)
+
+    def register_connect_callback(self, callback: Callable[[], Awaitable[None]]) -> None:
+        """Register a coroutine to run after every (re)connect to the add-on."""
+        self._connect_callbacks.append(callback)
 
     async def send_command(self, command: str, payload: dict[str, Any]) -> None:
         """Send a command."""

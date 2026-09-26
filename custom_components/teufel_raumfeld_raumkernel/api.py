@@ -131,7 +131,9 @@ class RaumfeldApiClient:
         if listener in self._listeners:
             self._listeners.remove(listener)
 
-    def register_connect_callback(self, callback: Callable[[], Awaitable[None]]) -> None:
+    def register_connect_callback(
+        self, callback: Callable[[], Awaitable[None]]
+    ) -> None:
         """Register a coroutine to run after every (re)connect to the add-on."""
         self._connect_callbacks.append(callback)
 

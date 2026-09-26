@@ -1,3 +1,7 @@
+## 1.2.41
+
+- When the add-on updates the integration, a "Restart required" repair now appears under Settings → Repairs, with a submit button that restarts Home Assistant (like HACS does). It replaces the plain "restart required" notification. The running integration detects the update when it reconnects to the restarted add-on, by comparing its loaded version with the new `manifest.json` on disk.
+
 ## 1.2.40
 
 - Merge upstream v1.2.19: add Spotify multiroom support — a "Spotify multiroom" switch to toggle between multi-room and single-room mode, and a "Spotify primary room" select entity to choose the active Spotify Connect speaker in multiroom mode (#73).

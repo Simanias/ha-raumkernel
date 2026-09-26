@@ -1,3 +1,7 @@
+## 1.2.42
+
+- Version bump to test the "Restart required" repair introduced in 1.2.41. No functional changes.
+
 ## 1.2.41
 
 - When the add-on updates the integration, a "Restart required" repair now appears under Settings → Repairs, with a submit button that restarts Home Assistant (like HACS does). It replaces the plain "restart required" notification. The running integration detects the update when it reconnects to the restarted add-on, by comparing its loaded version with the new `manifest.json` on disk.

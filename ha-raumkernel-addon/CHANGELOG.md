@@ -1,6 +1,8 @@
 ## 1.2.20
 
-- Feature: When the add-on updates the integration, a "Restart required" repair now appears under Settings → Repairs, with a submit button that restarts Home Assistant (like HACS does). It replaces the plain "restart required" notification.
+- Feature: When the add-on updates the integration, a "Restart required" repair now appears under Settings → Repairs, with a submit button that restarts Home Assistant (like HACS does). It replaces the plain "restart required" notification (#74).
+- Feature: Add shuffle and repeat controls to media player entities (#62, #75).
+- Thanks to contributors @Simanias and @holli73
 
 ## 1.2.19
 

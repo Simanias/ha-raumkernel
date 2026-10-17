@@ -20,5 +20,18 @@
         "abort": {
             "already_configured": "Device is already configured"
         }
+    },
+    "issues": {
+        "restart_required": {
+            "title": "Restart required",
+            "fix_flow": {
+                "step": {
+                    "confirm": {
+                        "title": "Restart required",
+                        "description": "Restart of Home Assistant is required to finish the update of the Teufel Raumfeld integration to version {version}, click submit to restart now."
+                    }
+                }
+            }
+        }
     }
 }

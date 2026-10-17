@@ -1,3 +1,7 @@
+## 1.2.43
+
+- Merge upstream v1.2.20: add shuffle and repeat controls to media player entities (#62, #75). Also brings in upstream's Ruff-formatted version of the restart-required repair code (#74), which fixes the Python lint check on this fork.
+
 ## 1.2.42
 
 - Version bump to test the "Restart required" repair introduced in 1.2.41. No functional changes.

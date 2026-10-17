@@ -30,6 +30,7 @@ def _read_installed_version() -> str | None:
     except (OSError, ValueError):
         return None
 
+
 PLATFORMS: list[Platform] = [
     Platform.MEDIA_PLAYER,
     Platform.BUTTON,
@@ -55,9 +56,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     ir.async_delete_issue(hass, DOMAIN, ISSUE_RESTART_REQUIRED)
 
     async def _check_for_integration_update() -> None:
-        installed_version = await hass.async_add_executor_job(
-            _read_installed_version
-        )
+        installed_version = await hass.async_add_executor_job(_read_installed_version)
         if not installed_version or installed_version == loaded_version:
             return
 
